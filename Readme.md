@@ -1,4 +1,4 @@
-# Compiling the Control Flow Graph Construction 
+# Compiling the CFG tool 
 
 This library is compatible with `pin-2.14-71313-gcc.4.4.7-linux` only. I tried testing with newer version of intel pintool i.e `pin-3.11-97998-g7ecce2dac-gcc-linux`. I got an error as follows: 
 
@@ -18,20 +18,21 @@ In file included from /usr/include/c++/7/cfenv:41:0,
 /home/bernard/PIN/pin-3.11-97998-g7ecce2dac-gcc-linux/extras/crt/include/fenv.h:49:10: fatal error: machine/fenv.h: No such file or directory
  #include <machine/fenv.h>
 ```
+`cd CFG` -> `make clean` -> `make`
 
-not able to run the compile binaries: 
+not able to run the compiled bubble sort binaries: 
 Error 
 ```
 profiling: /home/mukta/Mukta/s3cbench/bubble_sort/bubble.gcda: cannot open: No such file or directory
 ```
 
-The alternative approach is to install system-c. I follow the tutorial found (https://howto.tech.blog/2016/11/27/installing-systemc-2-3-1/)[] and install version 2.3.3. 
-`Not able to compile bubble sort (systemc)`
-
 # Function Extractor
+The tool CFG is an intraprocedural analysis that works function-wise. Hence you need a list of functions to perform the analysis. 
+
+## Compilation 
 `cd functionExtractor` and run `make` to compile
 
-and running the functionextrator.sh if any error such as the following
+On running the script `cfg.sh` and `functionextractor.sh` if the following errors is encountered
 
 ```
 E: Attach to pid 3828 failed. 
@@ -43,12 +44,15 @@ E:   For more information, regarding child injection, see Injection section in t
 E: 
 ./functionextractor.sh: line 1:  3828 Killed                  pin -ifeellucky -t FuncExtractor/obj-intel64/FuncExtractor.so -- ./apps/test
 ```
-run the command by running `sudo su` and then `echo 0 > /proc/sys/kernel/yama/ptrace_scope`
+run `sudo su` and then `echo 0 > /proc/sys/kernel/yama/ptrace_scope`
 
-Make sure you have Linux Kernel < 4.0 and Intel Pintool: `pin-2.14-71313-gcc.4.4.7-linux` (In folder PIN)
+Note: Make sure you have Linux Kernel < 4.0 and Intel Pintool: `pin-2.14-71313-gcc.4.4.7-linux` (found in PIN folder)
 
-
-
+# Output 
+## CFG output
+The tool with output a dot file with the filename as the function name and can be view but any dot viewer application. 
+## Function extractor output
+List of function `function.list`
 
 
 
