@@ -1,9 +1,8 @@
 .plt
+.plt.got
 __do_global_dtors_aux
-__gmon_start__@plt
 __libc_csu_fini
 __libc_csu_init
-__libc_start_main@plt
 _fini
 _init
 _start

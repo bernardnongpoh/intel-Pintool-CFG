@@ -1,7 +1,8 @@
-//
-// This tool counts the number of times a routine is executed and 
-// the number of instructions executed in a routine
-//
+/*
+@Bernard Nongpoh
+@email: bernard.nongpoh@gmail.com
+
+*/
 
 #include <fstream>
 #include <iomanip>
@@ -233,8 +234,7 @@ outFile.close();
 
 INT32 Usage()
 {
-    cerr << "This Pintool counts the number of times a routine is executed" << endl;
-    cerr << "and the number of instructions executed in a routine" << endl;
+    cerr << "CFG Generation" << endl;
     cerr << endl << KNOB_BASE::StringKnobSummary() << endl;
     return -1;
 }
@@ -255,9 +255,9 @@ int main(int argc, char * argv[])
 {
     // Initialize symbol table code, needed for rtn instrumentation
     PIN_InitSymbols();
-    std::cout<<"Here again Just to Try it Out";
+    std::cout<<"CFG ";
     outFile.open("PGGlog.out");
-    outFile<<"OK";
+    outFile<<"Analysis completed";
 
     
 
