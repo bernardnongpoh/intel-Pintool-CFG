@@ -21,25 +21,10 @@ In file included from /usr/include/c++/7/cfenv:41:0,
  #include <machine/fenv.h>
 ```
 
-# Running the given SystemC
-
-Error in running the given `bubblesort`  program. 
-=======
-`cd CFG` -> `make clean` -> `make`
-
-not able to run the compiled bubble sort binaries: 
 
 # Possible Errors
+
 While running the tool, you might encounter the following errors. 
-=======
-# Function Extractor
-The tool CFG is an intraprocedural analysis that works function-wise. Hence you need a list of functions to perform the analysis. 
-
-## Compilation 
-`cd functionExtractor` and run `make` to compile
-
-On running the script `cfg.sh` and `functionextractor.sh` if the following errors is encountered
->>>>>>> 17506f64f7b4a98a454e2222fc02157cec8d2429
 
 ```
 E: Attach to pid 3828 failed. 
@@ -51,7 +36,7 @@ E:   For more information regarding child injection, see the Injection section i
 E: 
 ./functionextractor.sh: line 1:  3828 Killed                  pin -ifeellucky -t FuncExtractor/obj-intel64/FuncExtractor.so -- ./apps/test
 ```
-<<<<<<< HEAD
+
 run the command by running `sudo su` and then `echo 0 > /proc/sys/kernel/yama/ptrace_scope`
 
 Make sure you have Linux Kernel < 4.0 and Intel Pin tool: `pin-2.14-71313-gcc.4.4.7-Linux`. The correct pin tool version is in folder `PIN.`
